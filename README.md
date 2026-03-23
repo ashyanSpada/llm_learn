@@ -6,7 +6,7 @@ A practical, low-compute LLM fine-tuning curriculum designed for Apple Silicon (
 
 - **Python** 3.10 or 3.11 (3.12+ works but some packages may lag)
 - **macOS** 13+ (Ventura or newer) for Apple Silicon / MPS support; Linux also supported
-- **conda** (recommended) or `uv` / plain `pip` for environment management
+- **`venv`** (built-in, recommended) or `uv` for environment management
 - Git
 
 > **Note:** You do **not** need a discrete NVIDIA GPU. Training runs on CPU or Apple's MPS (Metal Performance Shaders) backend.
@@ -28,9 +28,9 @@ A practical, low-compute LLM fine-tuning curriculum designed for Apple Silicon (
 git clone https://github.com/ashyanSpada/llm_learn.git
 cd llm_learn
 
-# 2. Create and activate a Python environment (conda example)
-conda create -n llm_learn python=3.11 -y
-conda activate llm_learn
+# 2. Create and activate a Python virtual environment
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 
 # 3. Install dependencies (including PyTorch with MPS support)
 pip install -e ".[dev]"

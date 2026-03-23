@@ -1,4 +1,4 @@
-.PHONY: help setup lint format test train infer eval clean
+.PHONY: help venv setup lint format test train infer eval clean
 
 PYTHON ?= python
 DATA   ?= data/tiny_instruct.jsonl
@@ -8,6 +8,10 @@ OUTDIR ?= runs/lora_demo
 help:   ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 	  awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
+
+venv:   ## Create a Python virtual environment in .venv/
+	python -m venv .venv
+	@echo "Run 'source .venv/bin/activate' to activate the environment."
 
 setup:  ## Install project + dev dependencies
 	pip install -e ".[dev]"
