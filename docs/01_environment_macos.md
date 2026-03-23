@@ -14,20 +14,24 @@ Get a working Python environment that uses **Apple's MPS (Metal Performance Shad
 
 ---
 
-## 2. Install Python 3.11 via conda (recommended)
+## 2. Install Python 3.11 and create a virtual environment
 
-Using [Miniforge](https://github.com/conda-forge/miniforge) (ARM-native conda distribution):
+Install Python 3.11 via Homebrew if you don't already have it:
 
 ```bash
-# Download and install Miniforge for Apple Silicon
-brew install miniforge
-
-# Create a dedicated environment
-conda create -n llm_learn python=3.11 -y
-conda activate llm_learn
+brew install python@3.11
 ```
 
-Alternatively, use [uv](https://github.com/astral-sh/uv):
+Then create and activate a virtual environment using the standard `venv` module
+(no third-party tools required):
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+```
+
+Alternatively, use [uv](https://github.com/astral-sh/uv) for faster dependency
+resolution:
 
 ```bash
 brew install uv
